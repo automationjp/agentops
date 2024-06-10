@@ -79,6 +79,9 @@ def init(
         skip_auto_end_session=skip_auto_end_session,
     )
 
+    if inherited_session_id is None and c.current_session_id is None:
+        start_session()
+
     return inherited_session_id or c.current_session_id
 
 
